@@ -64,9 +64,10 @@ namespace RunCPython
                     {
                         unzipTask.Start();
                         unzipTask.Wait();
-                        //بعد الإنتهاء من النسخ نشعر المستخدم بذلك
+                        
                         if (unzipTask.IsCompleted)
                         {
+                            //Inform the user when the packages are ready, and the application is ready to start
                             MessageBox.Show("Python packages are ready", "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
                             return true;
                         }

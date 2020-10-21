@@ -27,11 +27,12 @@ namespace RunCPython
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             if (!File.Exists(basePath + @"CPython\python.exe") || !File.Exists(filePythonScript))
             {
-                // لمعرفة إذا كان المسار جاهز أم لا
+                // To see if there's a path but no python.exe
                 if (Directory.Exists(basePath + @"CPython\") && File.Exists(filePythonScript))
                 {
-                    //إذا كان المسار جاهز ولكن هناك خطاء بسسب إعادة تحميل البرنامج أو تم تحديث المكتبه نقوم بإعادة التحميل نقوم بحذفه مع الملفات القديمة او الناقصة والنسخ من جديد
+                    //We're going to have to stop the application and try to install again
                     Directory.Delete(basePath + @"CPython\", true);
+                    //this boolean is for future changes
                     MainWindow.stop = true;
                     return false;
                 }
@@ -42,13 +43,12 @@ namespace RunCPython
                 string filePythonExePath = basePath + @"CPython\python.exe";
                 /// <summary>
                 /// Execute Python script file
-                /// نقم بتشغيل ملف البايثون سكربت
                 /// </summary>
-                /// <param name="filePythonScript">ملف البايثون سكربت</param>
-                /// <returns>يقوم السكربت بإرجاع إذا كانت العملية ناجحه او لا</returns>
+                /// <param name="filePythonScript">The CPython script file</param>
+                /// <returns>returns boolean true if success</returns>
                 try
                 {
-                    //تشغيل برنامج البياثون مع السماح له بإستقبال وإرسال البيانات
+                    //
                     using (process = new Process())
                     {
                         process.StartInfo = new ProcessStartInfo(filePythonExePath)
@@ -63,10 +63,10 @@ namespace RunCPython
                         process.Start();
                         processOn = true;
 
-                        //نقوم بتسجيل أي اخطاء
+                        //We should know if the python faces errors
                         standardError = process.StandardError.ReadToEnd();
 
-                        //بعد إنتهاء السكربت في البايثون نرجع إلى برنامج
+                        //Process will wait until Python finished running its script
                         process.WaitForExit();
 
                         if (standardError != string.Empty)
@@ -94,10 +94,10 @@ namespace RunCPython
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             if (!File.Exists(basePath + @"CPython\python.exe") || !File.Exists(filePythonScript))
             {
-                // لمعرفة إذا كان المسار جاهز أم لا
+                // To see if there's a path but no python.exe
                 if (Directory.Exists(basePath + @"CPython\") && File.Exists(filePythonScript))
                 {
-                    //إذا كان المسار جاهز ولكن هناك خطاء بسسب إعادة تحميل البرنامج أو تم تحديث المكتبه نقوم بإعادة التحميل نقوم بحذفه مع الملفات القديمة او الناقصة والنسخ من جديد
+                    //We're going to have to stop the application and try to install again
                     Directory.Delete(basePath + @"CPython\", true);
 
                     MainWindow.stop = true;
@@ -110,14 +110,12 @@ namespace RunCPython
                 string filePythonExePath = basePath + @"CPython\python.exe";
                 /// <summary>
                 /// Execute Python script file
-                /// نقم بتشغيل ملف البايثون سكربت
                 /// </summary>
-                /// <param name="filePythonScript">ملف البايثون سكربت</param>
-                /// <returns>يقوم السكربت بإرجاع إذا كانت العملية ناجحه او لا</returns>
-
+                // <param name="filePythonScript">The CPython script file</param>
+                /// <returns>returns boolean true if success</returns>
+                
                 try
                 {
-                    //تشغيل برنامج البياثون مع السماح له بإستقبال وإرسال البيانات
                     using (process = new Process())
                     {
                         process.StartInfo = new ProcessStartInfo(filePythonExePath)
@@ -131,12 +129,12 @@ namespace RunCPython
                         };
                         process.Start();
                         processOn = true;
-                        //ونقوم بإرسال رقم الكاميرا
+                        
                         process.StandardInput.WriteLine(input);
-                        //نقوم بتسجيل أي اخطاء
+                        
                         standardError = process.StandardError.ReadToEnd();
 
-                        //بعد إنتهاء السكربت في البايثون نرجع إلى برنامج
+                        
                         process.WaitForExit();
 
                         if (standardError != string.Empty)
@@ -165,10 +163,10 @@ namespace RunCPython
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             if (!File.Exists(basePath + @"CPython\python.exe") || !File.Exists(filePythonScript))
             {
-                // لمعرفة إذا كان المسار جاهز أم لا
+                
                 if (Directory.Exists(basePath + @"CPython\") && File.Exists(filePythonScript))
                 {
-                    //إذا كان المسار جاهز ولكن هناك خطاء بسسب إعادة تحميل البرنامج أو تم تحديث المكتبه نقوم بإعادة التحميل نقوم بحذفه مع الملفات القديمة او الناقصة والنسخ من جديد
+                    
                     Directory.Delete(basePath + @"CPython\", true);
 
                     MainWindow.stop = true;
@@ -179,16 +177,9 @@ namespace RunCPython
             else
             {
                 string filePythonExePath = basePath + @"CPython\python.exe";
-                /// <summary>
-                /// Execute Python script file
-                /// نقم بتشغيل ملف البايثون سكربت
-                /// </summary>
-                /// <param name="filePythonScript">ملف البايثون سكربت</param>
-                /// <returns>يقوم السكربت بإرجاع إذا كانت العملية ناجحه او لا</returns>
 
                 try
                 {
-                    //تشغيل برنامج البياثون مع السماح له بإستقبال وإرسال البيانات
                     using (process = new Process())
                     {
                         process.StartInfo = new ProcessStartInfo(filePythonExePath)
@@ -203,14 +194,14 @@ namespace RunCPython
                         process.Start();
                         processOn = true;
 
-                        //نستقبل النتيجة من السكربت
+                        
                         outputText = process.StandardOutput.ReadToEnd();
                         process.StandardOutput.Close();
 
-                        //نقوم بتسجيل أي اخطاء
+                        
                         standardError = process.StandardError.ReadToEnd();
 
-                        //بعد إنتهاء السكربت في البايثون نرجع إلى برنامج
+                        
                         process.WaitForExit();
 
                         if (standardError != string.Empty)
@@ -239,10 +230,10 @@ namespace RunCPython
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             if (!File.Exists(basePath + @"CPython\python.exe") || !File.Exists(filePythonScript))
             {
-                // لمعرفة إذا كان المسار جاهز أم لا
+                
                 if (Directory.Exists(basePath + @"CPython\") && File.Exists(filePythonScript))
                 {
-                    //إذا كان المسار جاهز ولكن هناك خطاء بسسب إعادة تحميل البرنامج أو تم تحديث المكتبه نقوم بإعادة التحميل نقوم بحذفه مع الملفات القديمة او الناقصة والنسخ من جديد
+                
                     Directory.Delete(basePath + @"CPython\", true);
 
                     MainWindow.stop = true;
@@ -255,14 +246,10 @@ namespace RunCPython
                 string filePythonExePath = basePath + @"CPython\python.exe";
                 /// <summary>
                 /// Execute Python script file
-                /// نقم بتشغيل ملف البايثون سكربت
                 /// </summary>
-                /// <param name="filePythonScript">ملف البايثون سكربت</param>
-                /// <returns>يقوم السكربت بإرجاع إذا كانت العملية ناجحه او لا</returns>
 
                 try
                 {
-                    //تشغيل برنامج البياثون مع السماح له بإستقبال وإرسال البيانات
                     using (process = new Process())
                     {
                         process.StartInfo = new ProcessStartInfo(filePythonExePath)
@@ -276,16 +263,20 @@ namespace RunCPython
                         };
                         process.Start();
                         processOn = true;
-                        //ونقوم بإرسال رقم الكاميرا
+                        
+
                         process.StandardInput.WriteLine(input);
                         process.StandardInput.Close();
-                        //نستقبل النتيجة من السكربت
+                        
+
                         outputText = process.StandardOutput.ReadToEnd();
                         process.StandardOutput.Close();
-                        //نقوم بتسجيل أي اخطاء
+                        
+
                         standardError = process.StandardError.ReadToEnd();
 
-                        //بعد إنتهاء السكربت في البايثون نرجع إلى برنامج
+                        
+
                         process.WaitForExit();
 
                         if (standardError != string.Empty)
