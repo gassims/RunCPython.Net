@@ -1,0 +1,17 @@
+C:\Users\G\source\repos\RunCPython\RunCPython\bin\Debug\CPython\python.zip
+C:\Users\G\source\repos\RunCPython\RunCPython\bin\Debug\CPython\ex.txt
+C:\Users\G\source\repos\RunCPython\RunCPython\bin\Debug\RunCPython.exe.config
+C:\Users\G\source\repos\RunCPython\RunCPython\bin\Debug\RunCPython.exe
+C:\Users\G\source\repos\RunCPython\RunCPython\bin\Debug\RunCPython.pdb
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\MainWindow.g.cs
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\App.g.cs
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython_Content.g.cs
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython_MarkupCompile.cache
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython_MarkupCompile.lref
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\MainWindow.baml
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython.g.resources
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython.Properties.Resources.resources
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython.csproj.GenerateResource.cache
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython.exe
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython.pdb
+C:\Users\G\source\repos\RunCPython\RunCPython\obj\Debug\RunCPython.csprojAssemblyReference.cache
